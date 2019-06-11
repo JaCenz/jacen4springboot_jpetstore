@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/template_head::head('EditAccount')">
+
+</head>
+<body>
+<header th:replace="common/template_menu::header">
+
+</header>
+
+<div id="Content">
+    <div id="Catalog">
+        <form action="/account/confirmEdit" method="post" name="userInfo" id="userInfo">
+
+            <h3>User Information</h3>
+
+            <table>
+                <tbody>
+                <tr>
+                    <td>User ID:</td>
+                    <td th:text="${session.account.username}" name="username" th:value="${session.account.username}"></td>
+                </tr>
+                <tr>
+                    <td>New password:</td>
+                    <td>
+                        <input name="password" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Repeat password:</td>
+                    <td><input name="repeatedPassword" type="password"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3 th:replace="account/includeAccountFields::h3-1"></h3>
+            <table th:replace="account/includeAccountFields::accountTable"></table>
+            <h3 th:replace="account/includeAccountFields::h3-2"></h3>
+            <table th:replace="account/includeAccountFields::profileTable"></table>
+
+            <input type="submit" name="editAccount" value="Save Account Information"/>
+
+        </form>
+        <a href="/order/checkOrder">My Orders</a>
+    </div>
+
+</div>
+
+<footer th:replace="common/template_menu::footer">
+
+</footer>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/register.js"></script>
+</body>
+</html>
