@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
@@ -56,6 +57,7 @@ public class CatalogController {
     //查看某一具体商品
     @GetMapping("/catalog/item")
     public String viewItem(@RequestParam("itemId") String itemId,Model model,HttpSession session){
+        System.out.println(itemId);
         if(itemId != null){
             Item item = catalogService.getItem(itemId);
 
@@ -67,7 +69,7 @@ public class CatalogController {
     }
 
     //关键字搜索
-    @GetMapping("/searchProduct")
+    @PostMapping("/searchProduct")
     public String searchProduct(@RequestParam("keyword")String keyword,Model model){
         if(keyword.equals("")){
             return "catalog/main";

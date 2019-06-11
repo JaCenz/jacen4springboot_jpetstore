@@ -26,7 +26,7 @@
             </tr>
             <!-- list -->
             <tr th:each="item:${itemList}">
-                <td><a th:href="@{/catagory/item(itemId=${item.itemId})}" th:text="${item.itemId}"></a></td>
+                <td><a th:href="@{/catalog/item(itemId=${item.itemId})}" th:text="${item.itemId}"></a></td>
                 <td th:text="${item.product.productId}">FL-DLH-02</td>
                 <td th:text="${item.attribute1==null?'':item.attribute1}+' '+${item.attribute2==null?'':item.attribute2}
                                 +' '+${item.attribute3==null?'':item.attribute3}+' '+${item.attribute4==null?'':item.attribute4}
@@ -35,8 +35,7 @@
                     ${item.attribute4} ${item.attribute5} ${sessionScope.product.name}
                 </td>
                 <td th:text="'$'+${#numbers.formatDecimal(item.listPrice,1,2)}"></td>
-                <td><a class="Button" href="#">Add
-                    to Cart</a></td>
+                <td><a class="Button" th:href="@{/cart/addToCart(workingItemId=${item.itemId})}">Add to Cart</a></td>
             </tr>
             <tr>
                 <td></td>
