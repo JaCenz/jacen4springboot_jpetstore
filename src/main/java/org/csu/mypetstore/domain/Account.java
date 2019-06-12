@@ -56,7 +56,7 @@ public class Account implements Serializable {
     return firstName;
   }
 
-//  @Validate(required=true, on={"newAccount", "editAccount"})
+  //@Validate(required=true, on={"newAccount", "editAccount"})
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
@@ -65,7 +65,7 @@ public class Account implements Serializable {
     return lastName;
   }
 
-//  @Validate(required=true, on={"newAccount", "editAccount"})
+ // @Validate(required=true, on={"newAccount", "editAccount"})
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
